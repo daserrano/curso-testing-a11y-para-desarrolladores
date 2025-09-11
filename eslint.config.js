@@ -4,6 +4,7 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 import prettierConfig from "eslint-config-prettier";
+import jsxA11Y from 'eslint-plugin-jsx-a11y';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -39,10 +40,12 @@ export default [
     },
     plugins: {
       react,
-      'react-hooks': reactHooks
+      'react-hooks': reactHooks,
+      'jsx-a11y': jsxA11Y,
     },
     rules: {
       ...react.configs.recommended.rules,
+      ...jsxA11Y.flatConfigs.recommended.rules,
       'react/prop-types': 'off'
     }
   },
